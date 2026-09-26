@@ -1,0 +1,219 @@
+:root {
+  --green: #2d6a4f;         
+  --light-green: #d8f3dc;   
+  --light-blue: #e0f4fc;    
+  --sand-brown: #b08968;    
+  --dark-text: #2b2d42;     
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--dark-text);
+  background-color: #f8fbf9;
+  line-height: 1.6;
+}
+
+.container {
+  padding: 0 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Header & Sticky Nav Bar */
+.site-header {
+  background: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+}
+
+.logo {
+  font-weight: 700;
+  color: var(--green);
+  font-size: 18px;
+}
+
+.lang-bar {
+  display: flex;
+  gap: 4px;
+}
+
+.lang-btn {
+  background: #f0f0f0;
+  border: none;
+  color: #333;
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.lang-btn.active {
+  background-color: var(--green);
+  color: white;
+}
+
+.menu-toggle {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  color: var(--green);
+  cursor: pointer;
+}
+
+/* Openable Navigation Menu */
+.nav-menu {
+  display: none;
+  flex-direction: column;
+  background: #f8fbf9;
+  border-top: 1px solid #e9ecef;
+  padding: 10px 20px;
+}
+
+.nav-menu.open {
+  display: flex;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--dark-text);
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--white);
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.badge {
+  background: var(--light-green);
+  color: var(--green);
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.hero h1 { font-size: 32px; margin: 10px 0; }
+.subtitle { font-size: 15px; margin-bottom: 20px; }
+
+/* Search & Filters */
+.search-box {
+  position: relative;
+  max-width: 450px;
+  margin: 0 auto 20px auto;
+}
+
+.search-icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--green); }
+.search-box input { width: 100%; padding: 12px 12px 12px 40px; border-radius: 25px; border: none; outline: none; }
+
+.filter-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: #e9ecef;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.filter-btn.active { background: var(--green); color: white; }
+
+/* Hotels */
+.hotels { padding: 40px 0; }
+.hotels h3 { text-align: center; margin-bottom: 20px; color: var(--green); }
+
+.hotel-grid { display: flex; flex-direction: column; gap: 25px; }
+.hotel-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.06); }
+
+.hotel-img { height: 200px; background-size: cover; background-position: center; position: relative; }
+.rating-badge { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.7); color: #ffd166; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700; }
+
+.hotel-info { padding: 20px; }
+.hotel-header { display: flex; justify-content: space-between; font-size: 12px; color: var(--sand-brown); font-weight: 700; }
+.price-level { color: var(--green); }
+
+.features { display: flex; gap: 10px; margin: 10px 0; font-size: 11px; color: #666; flex-wrap: wrap; }
+.features span { background: #f0f7f4; padding: 4px 8px; border-radius: 6px; }
+
+.tag { display: inline-block; background-color: var(--light-green); color: var(--green); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 8px; margin-top: 10px; }
+
+/* About & B2B Sections */
+.about-section, .b2b-section { padding: 35px 0; }
+.about-card, .b2b-card { background: white; padding: 25px; border-radius: 16px; text-align: center; }
+.b2b-card { background: var(--light-blue); border: 1px dashed var(--green); }
+.b2b-card h3 { color: var(--green); margin-bottom: 10px; }
+
+.btn-secondary { display: inline-block; background: var(--green); color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-size: 13px; margin-top: 12px; font-weight: 600; }
+.btn-primary { display: inline-block; background: var(--green); color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; border: none; cursor: pointer; }
+
+/* Contact Form & Email Box */
+.contact-section { padding: 40px 0; text-align: center; }
+.email-direct-box {
+  background: var(--light-green);
+  color: var(--green);
+  padding: 12px 20px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 15px 0;
+}
+.email-direct-box a { color: var(--green); text-decoration: underline; }
+
+.contact-form { display: flex; flex-direction: column; gap: 12px; max-width: 450px; margin: 10px auto 0 auto; }
+.contact-form input, .contact-form select, .contact-form textarea { padding: 12px; border-radius: 10px; border: 1px solid #ccc; font-family: inherit; font-size: 13px; outline: none; }
+
+.social-section { padding: 30px 0; text-align: center; }
+.social-buttons { display: flex; justify-content: center; }
+.social-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 24px; border-radius: 12px; text-decoration: none; color: white; font-weight: 600; background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); }
+
+footer { text-align: center; padding: 20px; background-color: var(--green); color: white; font-size: 12px; }

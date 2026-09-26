@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travelwithkotkaa | Luxus, Urlaub & Entspannung</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome İkonları -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header & Menü -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="logo">Travelwithkotkaa</div>
+      
+      <!-- Dil Butonları -->
+      <div class="lang-bar">
+        <button onclick="changeLanguage('de')" class="lang-btn active" id="btn-de">DE 🇩🇪</button>
+        <button onclick="changeLanguage('en')" class="lang-btn" id="btn-en">EN 🇬🇧</button>
+        <button onclick="changeLanguage('tr')" class="lang-btn" id="btn-tr">TR 🇹🇷</button>
+      </div>
+
+      <!-- Menü Aç/Kapat Butonu (Mobil) -->
+      <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Navigation Menüsü -->
+    <nav class="nav-menu" id="navMenu">
+      <a href="#empfehlungen" onclick="closeMenu()" id="nav-hotels"><i class="fa-solid fa-hotel"></i> Hotels</a>
+      <a href="#über-uns" onclick="closeMenu()" id="nav-about"><i class="fa-solid fa-heart"></i> Über uns</a>
+      <a href="#für-unternehmen" onclick="closeMenu()" id="nav-b2b"><i class="fa-solid fa-handshake"></i> Für Hotels</a>
+      <a href="#kontakt" onclick="closeMenu()" id="nav-contact"><i class="fa-solid fa-envelope"></i> Kontakt</a>
+    </nav>
+  </header>
+
+  <!-- Hero / Giriş -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <span class="badge" id="hero-badge">✨ Echte Empfehlungen & Luxus</span>
+      <h1>Travelwithkotkaa</h1>
+      <p class="subtitle" id="hero-subtitle">Bist du es auch leid, stundenlang nach dem perfekten Urlaub zu suchen?</p>
+
+      <!-- Arama Kutusu -->
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" onkeyup="searchHotels()" placeholder="Hotel, Stadt oder Ort suchen... (z.B. Delfin, Istanbul)">
+      </div>
+
+      <a href="#empfehlungen" class="btn-primary" id="hero-btn">Hotel-Tipps entdecken <i class="fa-solid fa-arrow-down"></i></a>
+    </div>
+  </section>
+
+  <!-- Otel Önerileri & Filtreler -->
+  <section id="empfehlungen" class="hotels">
+    <div class="container">
+      <h3 id="hotels-title">Handverlesene Hotel-Empfehlungen 🏨</h3>
+
+      <!-- Hızlı Filtreler -->
+      <div class="filter-buttons">
+        <button class="filter-btn active" onclick="filterCategory('all')">Alle</button>
+        <button class="filter-btn" onclick="filterCategory('luxus')">Luxus & Spa 👑</button>
+        <button class="filter-btn" onclick="filterCategory('strand')">Strand & Meer 🌊</button>
+      </div>
+
+      <div class="hotel-grid" id="hotelGrid">
+
+        <!-- Otel 1: Delphin Lara -->
+        <div class="hotel-card" data-category="luxus strand" data-keywords="delphin delfin resort lara antalya turkei turkey turkiye luxus Schokolade pool strand">
+          <div class="hotel-img" style="background-image: url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80');">
+            <span class="rating-badge">★ 9.8 / 10</span>
+          </div>
+          <div class="hotel-info">
+            <div class="hotel-header">
+              <span class="location"><i class="fa-solid fa-location-dot"></i> Antalya / Türkei</span>
+              <span class="price-level">€€€€</span>
+            </div>
+            <h4>Delphin Resort Lara</h4>
+            
+            <div class="features">
+              <span><i class="fa-solid fa-water-pool"></i> Beheizter Pool</span>
+              <span><i class="fa-solid fa-utensils"></i> Ultra All-Inclusive</span>
+              <span><i class="fa-solid fa-umbrella-beach"></i> Strandlage</span>
+            </div>
+
+            <p class="hotel-desc-de">
+              Ein absolutes Paradies! Schon beim Ankommen wird man mit Schokoladen-Ständen begrüßt. Riesige Pools, beheizter Außenpool und köstliche Food-Stände links und rechts auf dem Weg zum Strand. Perfekt für alle, die puren Luxus und Erholung suchen!
+            </p>
+            <p class="hotel-desc-en" style="display:none;">
+              An absolute paradise! Upon arrival you are welcomed with chocolate stands. Huge pools, heated outdoor pool and delicious food stands along the path to the beach. Perfect for pure luxury and relaxation!
+            </p>
+            <p class="hotel-desc-tr" style="display:none;">
+              Resmen bir cennet! Girişte sizi çikolata stantları karşılıyor. Devasa havuzlar, sıcak dış havuz ve plaja doğru giderken sağda solda lezzetli yemek stantları. Lüks ve rahatına düşkünler için mükemmel!
+            </p>
+
+            <span class="tag tag-de">🔥 Meine persönliche Top-Empfehlung</span>
+            <span class="tag tag-en" style="display:none;">🔥 My personal top recommendation</span>
+            <span class="tag tag-tr" style="display:none;">🔥 Kişisel favori tavsiyem</span>
+          </div>
+        </div>
+
+        <!-- Otel 2: Çırağan Palace Kempinski -->
+        <div class="hotel-card" data-category="luxus" data-keywords="ciragan chiragan palace kempinski istanbul bosphorus bogaz turkei turkey turkiye luks otel palace">
+          <div class="hotel-img" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80');">
+            <span class="rating-badge">★ 9.9 / 10</span>
+          </div>
+          <div class="hotel-info">
+            <div class="hotel-header">
+              <span class="location"><i class="fa-solid fa-location-dot"></i> Istanbul / Türkei</span>
+              <span class="price-level">€€€€€</span>
+            </div>
+            <h4>Çırağan Palace Kempinski</h4>
+
+            <div class="features">
+              <span><i class="fa-solid fa-crown"></i> Historischer Palast</span>
+              <span><i class="fa-solid fa-water"></i> Bosphorus-Blick</span>
+              <span><i class="fa-solid fa-spa"></i> VIP Service</span>
+            </div>
+
+            <p class="hotel-desc-de">
+              Ein echter osmanischer Palast direkt am Bosphorus. Unvergleichlicher Service, ein Infinity-Pool mit Blick aufs Meer und ein einzigartiges Gefühl von Eleganz mitten in Istanbul.
+            </p>
+            <p class="hotel-desc-en" style="display:none;">
+              A real Ottoman palace directly on the Bosphorus. Unrivaled service, an infinity pool overlooking the sea and a unique feeling of elegance in Istanbul.
+            </p>
+            <p class="hotel-desc-tr" style="display:none;">
+              Boğaz'ın tam kıyısında gerçek bir Osmanlı sarayı. Eşsiz hizmet, denize sıfır sonsuzluk havuzu ve İstanbul'un ortasında büyüleyici bir lüks hissi.
+            </p>
+
+            <span class="tag tag-de">👑 Mitten in Istanbul & Magisch</span>
+            <span class="tag tag-en" style="display:none;">👑 Heart of Istanbul & Magical</span>
+            <span class="tag tag-tr" style="display:none;">👑 İstanbul'un kalbinde & Büyüleyici</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="noResults" style="display:none; text-align:center; padding: 30px; background: white; border-radius:15px; margin-top:20px;">
+        <p style="font-size: 18px; color: #555;">🔍 <span id="no-res-text">Kein Hotel gefunden?</span></p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Über uns (Samimi & Tatlı Hakkımızda) -->
+  <section id="über-uns" class="about-section">
+    <div class="container">
+      <div class="about-card">
+        <div class="about-icon">
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <h2 id="about-title">Über uns 🌿</h2>
+        <p id="about-text">
+          Hallo & Willkommen! Ich bin jemand, der das Reisen über alles liebt, neugierig auf neue Orte ist und großen Wert auf <strong>Qualität, Komfort und echte Entspannung</strong> legt. 
+          Ich kenne das Gefühl, stundenlang nach dem richtigen Hotel zu suchen – deshalb teile ich hier meine ehrlichen Tipps und Erfahrungen, damit dein nächster Urlaub einfach perfekt wird!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Für Unternehmen / Für Hotels (B2B) -->
+  <section id="für-unternehmen" class="b2b-section">
+    <div class="container">
+      <div class="b2b-card">
+        <h3><i class="fa-solid fa-handshake"></i> Für Hotels & Partner</h3>
+        <p id="b2b-text">
+          Sie führen ein exklusives Hotel oder Resort und möchten auf <strong>Travelwithkotkaa</strong> präsentiert werden? 
+          Lassen Sie uns gemeinsam authentischen Content erstellen und Ihre Zielgruppe begeistern.
+        </p>
+        <a href="mailto:kotka.reisen@gmail.com" class="btn-secondary" id="b2b-btn"><i class="fa-solid fa-envelope"></i> kotka.reisen@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram -->
+  <section class="social-section">
+    <div class="container">
+      <h3 id="social-title">Echte Einblicke auf Instagram 📸</h3>
+      <div class="social-buttons">
+        <a href="https://instagram.com" target="_blank" class="social-btn instagram">
+          <i class="fa-brands fa-instagram"></i> Instagram (@travelwithkotkaa)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- İletişim / Kontakt Formu -->
+  <section id="kontakt" class="contact-section">
+    <div class="container">
+      <h3 id="contact-title">Kontakt & Anfragen ✉️</h3>
+      <p id="contact-subtitle">Egal ob Reisender mit Fragen oder Hotel für Kooperationen – schreibe uns gerne direkt per E-Mail oder Formular!</p>
+
+      <div class="email-direct-box">
+        <i class="fa-solid fa-paper-plane"></i>
+        <span>E-Mail: <a href="mailto:kotka.reisen@gmail.com">kotka.reisen@gmail.com</a></span>
+      </div>
+
+      <form class="contact-form" action="https://formspree.io/f/kotka.reisen@gmail.com" method="POST">
+        <input type="text" name="name" placeholder="Name / Unternehmen" required>
+        <input type="email" name="email" placeholder="E-Mail Adresse" required>
+        <select name="type">
+          <option>Reisender (Frage / Empfehlung)</option>
+          <option>Hotel / Kooperation (B2B)</option>
+        </select>
+        <textarea name="message" rows="4" placeholder="Ihre Nachricht..." required></textarea>
+        <button type="submit" class="btn-primary">Nachricht senden <i class="fa-solid fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© Travelwithkotkaa | E-Mail: kotka.reisen@gmail.com</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
